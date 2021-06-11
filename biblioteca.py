@@ -584,12 +584,12 @@ def Gauss_Elimination_L():
 #Solução do sistema fatorando a matriz A por duas matrizes lower e uper
 def Fatoracao_LU():
     global multiplicadores
-    
+
     def lu(l, m):
         for p in range(0, 2):
             l[p + 1, 0] = m[p]
         l[2, 1] = m[2]
-    
+
     def lu2(l, m):
         for p in range(0, 3):
             l[p + 1, 0] = m[p]
@@ -715,7 +715,8 @@ def Fatoracao_LU():
         loading()
         print(f'{bold}{orange7} Multiplicadores: {white}{mults} {white}{res}')
         loading()
-        while True:
+        teste = True
+        while teste:
             request = input(f'{bold}{white}Valores de y no formato {orange7}({white}b1 b2 b3{orange7}){white}: {res}').split()
             if len(request) == 3:
                 c1, c2, c3 = [float(value) for value in request]
@@ -732,7 +733,11 @@ def Fatoracao_LU():
                 print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end='\n')
-                break
+                verf = (f'{bold}{white} Quer repetir o processo para y? (y/n): {res}').replace(' ', '')
+                if verf == 'y' or verf == 'yes' or verf == 'sim' or verf == 's':
+                    teste = True
+                elif verf == 'n' or verf == 'no' or verf == 'nao' or verf == 'não':
+                    teste = False
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
@@ -767,7 +772,11 @@ def Fatoracao_LU():
                 print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x4{white}: {x4:.7f}]', end='\n')
-                break
+                verf = (f'{bold}{white} Quer repetir o processo para y? (y/n): {res}').replace(' ', '')
+                if verf == 'y' or verf == 'yes' or verf == 'sim' or verf == 's':
+                    teste = True
+                elif verf == 'n' or verf == 'no' or verf == 'nao' or verf == 'não':
+                    teste = False
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
@@ -1188,7 +1197,8 @@ def seletor():
             loading()
             Fatoracao_LU()
             loading()
-        elif x == 'j' or x == 'jacobi' or x =='gauss-jacobi' or x == 'gaussjacobi' or x == 'jacas':
+        elif x == 'j' or x == 'jacobi' or x =='gauss-jacobi' or x == 'gaussjacobi' or x == 'jacas' \
+                or x== 'xanosk' or x == 'gaussxanosk' or x == 'gauss-xanosk' or x == 'schanoski':
             loading()
             title('Gauss-Jacobi')
             loading()
