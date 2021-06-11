@@ -733,7 +733,8 @@ def Fatoracao_LU():
                 print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end='\n')
-                verf = (f'{bold}{white} Quer repetir o processo para y? (y/n): {res}').replace(' ', '')
+                loading()
+                verf = input(f'{bold}{white} Quer repetir o processo para y? (y/n): {res}').replace(' ', '')
                 if verf == 'y' or verf == 'yes' or verf == 'sim' or verf == 's':
                     teste = True
                 elif verf == 'n' or verf == 'no' or verf == 'nao' or verf == 'não':
@@ -773,7 +774,8 @@ def Fatoracao_LU():
                 print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x4{white}: {x4:.7f}]', end='\n')
-                verf = (f'{bold}{white} Quer repetir o processo para y? (y/n): {res}').replace(' ', '')
+                loading()
+                verf = input(f'{bold}{white} Quer repetir o processo para y? (y/n): {res}').replace(' ', '')
                 if verf == 'y' or verf == 'yes' or verf == 'sim' or verf == 's':
                     teste = True
                 elif verf == 'n' or verf == 'no' or verf == 'nao' or verf == 'não':
