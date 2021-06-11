@@ -13,7 +13,8 @@ if colors:
     green2 = fg(34)
     green4 = fg(46)
     green5 = fg(82)
-
+    moss = fg(142)
+    moss1 = fg(148)
     blue = fg(4)
     blue1 = fg(12)
     blue3 = fg(39)
@@ -187,7 +188,7 @@ def criar_matriz_sqr():
                     loading()
                     print(f'{red2}{bold}Entrada Inválida!!!')
                     print(f'Número de {white}colunas {red2}não é compátivel com os da {white}matriz')
-                    print(f'{red2}Valor Entrado {white}{len(x)} {red}Tamanho da Matriz {white}{tamanho}.')
+                    print(f'{red2}Valor Entrado {white}{len(x)} {red2}Tamanho da Matriz {white}{tamanho}.')
                     loading()
                     if counter == t:
                         i = t
@@ -582,10 +583,13 @@ def Gauss_Elimination_L():
         print(f'{bold}{white}[{orange7}x4{white}: {x4:7f}]', end='\n')
 #Solução do sistema fatorando a matriz A por duas matrizes lower e uper
 def Fatoracao_LU():
+    global multiplicadores
+    
     def lu(l, m):
         for p in range(0, 2):
             l[p + 1, 0] = m[p]
         l[2, 1] = m[2]
+    
     def lu2(l, m):
         for p in range(0, 3):
             l[p + 1, 0] = m[p]
@@ -734,7 +738,6 @@ def Fatoracao_LU():
                 print(f'{red2}{bold}Entrada Inválida!!!')
                 print(f'Valores de y deve estar no formato {orange7}({white}b1 b2 b3{orange7}){res}')
                 loading()
-
     if m.shape[0] == 4:
         l = np.identity(4)
         lu2(l, mults)
@@ -771,109 +774,114 @@ def Fatoracao_LU():
                 print(f'Valores de y deve estar no formato {orange7}({white}b1 b2 b3 b4{orange7}){res}')
                 loading()
 #Solução do sistema por Gauss-Jacobi
-def Gauss_Jacobi():
+def Gauss_Xanosk():
     m = criar_matriz()
     if m.shape[0] == 3:
-        a11 = (abs(m[0, 1]) + abs(m[0, 2]))/ abs(m[0,0])
-        a22 = (abs(m[1, 0]) + abs(m[1, 2]))/ abs(m[1,1])
-        a33 = (abs(m[2, 0]) + abs(m[2, 1]))/ abs(m[2,2])
-        if abs(a11) < 1 and abs(a22) < 1 and abs(a33) < 1:
+        l11 = (abs(m[0, 1]) + abs(m[0, 2]))
+        l22 = (abs(m[1, 0]) + abs(m[1, 2]))
+        l33 = (abs(m[2, 0]) + abs(m[2, 1]))
+        c11 = (abs(m[1, 0]) + abs(m[2, 0]))
+        c22 = (abs(m[0, 1]) + abs(m[2, 1]))
+        c33 = (abs(m[0, 2]) + abs(m[1, 2]))
+        verify = False
+        if abs(c11) < abs(m[0, 0]) and abs(c22) < abs(m[1, 1]) and abs(c33) < abs(m[2, 2]):
             verify = True
-            while verify == True:
-                kinicial = input(f'{bold}{white}Valores iniciais de x1, x2 e x3 no '
-                                 f'formato {orange7}({white}x1 x2 x3{orange7}){white}: {res}').split()
-                if len(kinicial) == 3:
-                    x0, y0, z0 = [float(values) for values in kinicial]
-                    erro = float(input(f'{bold}{white}Erro Permitido: {res}'))
-                    k = 1
-                    while verify == True:
-                        x = (m[0, 3] - (m[0, 2] * z0) - (m[0, 1] * y0)) / m[0, 0]
-                        y = (m[1, 3] - (m[1, 2] * z0) - (m[1, 0] * x0)) / m[1, 1]
-                        z = (m[2, 3] - (m[2, 1] * y0) - (m[2, 0] * x0)) / m[2, 2]
-                        loading()
-                        print(f'{bold}{orange7}Interação: {white}{k}{res}')
-                        print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
-                        print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
-                        print(f'{bold}{white}[{orange7}x3{white}: {z:7f}]', end='\n')
-                        ex = (abs(x) - abs(x0))
-                        ey = (abs(y) - abs(y0))
-                        ez = (abs(z) - abs(z0))
-                        print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
-                        print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
-                        print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
-                        if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro:
-                            verify = False
-                        else:
-                            x0 = x
-                            y0 = y
-                            z0 = z
-                            k += 1
-                else:
-                    loading()
-                    print(f'{red2}{bold}Entrada Inválida!!!')
-                    print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3{orange7}){res}')
+        elif abs(l11) < abs(m[0, 0]) and abs(l22) < abs(m[1, 1]) and abs(l33) < abs(m[2, 2]):
+            verify = True
         else:
             print(f'{bold}{white}Sistema {red2}Inválido!!!')
             print(f'{red2}Critérios de convergência não atendindos!{res}')
-            print(f'{bold}{white}[{orange7}a11{white}: {a11:.7f}]', end=' ')
-            print(f'{bold}{white}[{orange7}a22{white}: {a22:.7f}]', end=' ')
-            print(f'{bold}{white}[{orange7}a33{white}: {a33:7f}]', end='\n')
-            print(f'{bold}{red2}Todos valores de {white}a11, a22, a33{red2} devem ser menor que 1')
-    if m.shape[0] == 4:
-        a11 = (abs(m[0, 1]) + abs(m[0, 2]) + abs(m[0, 3])) / abs(m[0,0])
-        a22 = (abs(m[1, 0]) + abs(m[1, 2]) + abs(m[1, 3])) / abs(m[1,1])
-        a33 = (abs(m[2, 0]) + abs(m[2, 1]) + abs(m[2, 3])) / abs(m[2,2])
-        a44 = (abs(m[3, 0]) + abs(m[3, 1]) + abs(m[3, 2])) / abs(m[3,3])
-        loading()
-        if abs(a11) < 1 and abs(a22) < 1 and abs(a33) < 1 and abs(a44) < 1:
-            verify = True
-            while verify == True:
-                kinicial = input(f'{bold}{white}Valores iniciais de x1, x2, x3 e x4 no '
-                                 f'formato {orange7}({white}x1 x2 x3 x4{orange7}){white}: {res}').split()
-                if len(kinicial) == 4:
-                    x0, y0, z0, w0 = [float(values) for values in kinicial]
-                    erro = float(input(f'{bold}{white}Erro Permitido: {res}'))
-                    k = 1
-                    while verify == True:
-                        x = (m[0, 4] - (m[0, 2] * z0) - (m[0, 1] * y0) - (m[0, 3] * w0)) / m[0, 0]
-                        y = (m[1, 4] - (m[1, 2] * z0) - (m[1, 0] * x0) - (m[1, 3] * w0)) / m[1, 1]
-                        z = (m[2, 4] - (m[2, 1] * y0) - (m[2, 0] * x0) - (m[2, 3] * w0)) / m[2, 2]
-                        w = (m[3, 4] - (m[3, 1] * y0) - (m[3, 0] * x0) - (m[3, 2] * z0)) / m[3, 3]
-                        loading()
-                        print(f'{bold}{orange7}Interação: {white}{k}{res}')
-                        print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
-                        print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
-                        print(f'{bold}{white}[{orange7}x3{white}: {z:.7f}]', end=' ')
-                        print(f'{bold}{white}[{orange7}x4{white}: {w:7f}]', end='\n')
-                        ex = (abs(x) - abs(x0))
-                        ey = (abs(y) - abs(y0))
-                        ez = (abs(z) - abs(z0))
-                        ew = (abs(w) - abs(w0))
-                        print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
-                        print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
-                        print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
-                        print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.7f}{white}]', end='\n')
-                        if ex < erro and ey < erro and ez < erro and ew < erro:
-                            verify = False
-                        else:
-                            x0 = x
-                            y0 = y
-                            z0 = z
-                            w0 = w
-                            k += 1
-                else:
+        while verify:
+            loading()
+            kinicial = input(f'{bold}{white}Valores iniciais de x1, x2 e x3 no '
+                             f'formato {orange7}({white}x1 x2 x3{orange7}){white}: {res}').split()
+            if len(kinicial) == 3:
+                x0, y0, z0 = [float(values) for values in kinicial]
+                erro = float(input(f'{bold}{white}Erro Permitido: {res}'))
+                k = 1
+                while verify:
+                    x = (m[0, 3] - (m[0, 2] * z0) - (m[0, 1] * y0)) / m[0, 0]
+                    y = (m[1, 3] - (m[1, 2] * z0) - (m[1, 0] * x0)) / m[1, 1]
+                    z = (m[2, 3] - (m[2, 1] * y0) - (m[2, 0] * x0)) / m[2, 2]
                     loading()
-                    print(f'{red2}{bold}Entrada Inválida!!!')
-                    print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3 x4{orange7}){res}')
+                    print(f'{bold}{orange7}Interação: {white}{k}{res}')
+                    print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x3{white}: {z:7f}]', end='\n')
+                    ex = (abs(x) - abs(x0))
+                    ey = (abs(y) - abs(y0))
+                    ez = (abs(z) - abs(z0))
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
+                    if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro:
+                        verify = False
+                    else:
+                        x0 = x
+                        y0 = y
+                        z0 = z
+                        k += 1
+            else:
+                loading()
+                print(f'{red2}{bold}Entrada Inválida!!!')
+                print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3{orange7}){res}')
 
+    if m.shape[0] == 4:
+        l11 = (abs(m[0, 1]) + abs(m[0, 2]) + abs(m[0, 3]))
+        l22 = (abs(m[1, 0]) + abs(m[1, 2]) + abs(m[1, 3]))
+        l33 = (abs(m[2, 0]) + abs(m[2, 1]) + abs(m[2, 3]))
+        l44 = (abs(m[3, 0]) + abs(m[3, 1]) + abs(m[3, 2]))
+        c11 = (abs(m[1, 0]) + abs(m[2, 0]) + abs(m[3, 0]))
+        c22 = (abs(m[0, 1]) + abs(m[2, 1]) + abs(m[3, 1]))
+        c33 = (abs(m[0, 2]) + abs(m[1, 2]) + abs(m[3, 2]))
+        c44 = (abs(m[0, 3]) + abs(m[1, 3]) + abs(m[2, 3]))
+        verify = False
+        if abs(c11) < abs(m[0, 0]) and abs(c22) < abs(m[1, 1]) and abs(c33) < abs(m[2, 2]) and abs(c44) < abs(m[3, 3]):
+            verify = True
+        elif abs(l11) < abs(m[0, 0]) and abs(l22) < abs(m[1, 1]) and abs(l33) < abs(m[2, 2]) and abs(l44) < abs(
+                m[3, 3]):
+            verify = True
         else:
             print(f'{bold}{white}Sistema {red2}Inválido!!!')
             print(f'{red2}Critérios de convergência não atendindos!{res}')
-            print(f'{bold}{white}[{orange7}a11{white}: {a11:.7f}]', end=' ')
-            print(f'{bold}{white}[{orange7}a22{white}: {a22:.7f}]', end=' ')
-            print(f'{bold}{white}[{orange7}a33{white}: {a33:.7f}]', end=' ')
-            print(f'{bold}{white}[{orange7}a33{white}: {a44:7f}]', end='\n')
-            print(f'{bold}{red2}Todos valores de {white}a11, a22, a33, a44 {red2}devem ser menor que 1')
+        while verify:
+            kinicial = input(f'{bold}{white}Valores iniciais de x1, x2, x3 e x4 no '
+                             f'formato {orange7}({white}x1 x2 x3 x4{orange7}){white}: {res}').split()
+            if len(kinicial) == 4:
+                x0, y0, z0, w0 = [float(values) for values in kinicial]
+                erro = float(input(f'{bold}{white}Erro Permitido: {res}'))
+                k = 1
+                while verify:
+                    x = (m[0, 4] - (m[0, 2] * z0) - (m[0, 1] * y0) - (m[0, 3] * w0)) / m[0, 0]
+                    y = (m[1, 4] - (m[1, 2] * z0) - (m[1, 0] * x0) - (m[1, 3] * w0)) / m[1, 1]
+                    z = (m[2, 4] - (m[2, 1] * y0) - (m[2, 0] * x0) - (m[2, 3] * w0)) / m[2, 2]
+                    w = (m[3, 4] - (m[3, 1] * y0) - (m[3, 0] * x0) - (m[3, 2] * z0)) / m[3, 3]
+                    loading()
+                    print(f'{bold}{orange7}Interação: {white}{k}{res}')
+                    print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x3{white}: {z:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x4{white}: {w:7f}]', end='\n')
+                    ex = (abs(x) - abs(x0))
+                    ey = (abs(y) - abs(y0))
+                    ez = (abs(z) - abs(z0))
+                    ew = (abs(w) - abs(w0))
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.7f}{white}]', end='\n')
+                    if ex < erro and ey < erro and ez < erro and ew < erro:
+                        verify = False
+                    else:
+                        x0 = x
+                        y0 = y
+                        z0 = z
+                        w0 = w
+                        k += 1
+            else:
+                loading()
+                print(f'{red2}{bold}Entrada Inválida!!!')
+                print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3 x4{orange7}){res}')
 #Cria cópias de funções com o parâmetro definido
 def criar_vetor_copy(x):
     vetor = np.zeros((1,x))
@@ -1055,7 +1063,7 @@ def loading():
 title = lambda text: print(f'{bold}{sub}{text}{res}')
 
 #Tecla
-tecla = lambda funçao, text: print(f'{bold}{gray}{funçao} {orange7}[{white} {text} {orange7}]{res}')
+tecla = lambda funçao, text: print(f'{bold}{moss1}{funçao} {orange7}[{white} {text} {orange7}]{res}')
 
 #Seletor
 def seletor():
@@ -1184,7 +1192,7 @@ def seletor():
             loading()
             title('Gauss-Jacobi')
             loading()
-            Gauss_Jacobi()
+            Gauss_Xanosk()
             loading()
         elif x == 'q':
             break
@@ -1195,84 +1203,3 @@ def seletor():
 
 if __name__ == '__main__':
     seletor()
-
-    """from math import*
-    
-    def f(x):
-        return 8*x**3 + 3*cos(-3*x) - 510.9
-    
-    def g(x):
-        return 24*x**2 - 9*sin(3*x)
-    contador = 0
-    x0 = 3
-    fxi = f(x0)
-    gxi = g(x0)
-    while True:
-        print(f'interação: {contador}')
-        print(f'f(x): {fxi:.7f}')
-        print(f'f\'(x): {gxi:.7f}')
-        x = x0 - (fxi/gxi)
-        print(f'xi = {x:.7f}')
-        erro = x - x0
-        contador += 1
-        if abs(erro) < 0.0001 or abs(fxi) < 0.0001:
-            break
-        else:
-            fxi = f(x)
-            gxi = g(x)
-            x0 = x"""
-
-    """from math import*
-    
-    def f(x):
-        return 15*e**(-x) -19*x**(2) +34.65
-    
-    x0 = 1
-    x1 = 2
-    contador = 0
-    while True:
-        print(f'interação: {contador}')
-        x = (x1-(((x1-x0)*f(x1))/(f(x1)-f(x0))))
-        print(f'xi = {x:.7f}')
-        erro = x - x1
-        if abs(erro) < 0.001 or abs(f(x)) < 0.1:
-            break
-        else:
-            x0 = x1
-            x1 = x
-            contador +=1
-    """
-
-    """from math import*
-    
-    def f(x):
-        return x**(-2) + 12*x**(-3) - 0.25
-    
-    def g(x):
-        return (-2/x**3) - (36/x**4)
-    
-    i = 1
-    x0 = 3
-    a = 3
-    b = 11
-    while True:
-        fxi = f(x0)
-        gxi = g(x0)
-        x = x0 - (fxi/gxi)
-        print(f'x{i}N = {x:.7f}')
-        if f(a)*f(x) < 0:
-            b = x
-        else:
-            a = x
-        xf = a - (((b - a)*f(a))/(f(b) - f(a)))
-        print(f'x{i}F = {xf:.7f}')
-        i +=1
-        erro = x - xf
-        if abs(erro) < 0.1:
-            break
-        elif f(a)*f(xf) < 0:
-            b = xf
-            x0 = xf
-        elif f(a)*f(xf) > 0:
-            a =xf
-            x0 = xf"""
