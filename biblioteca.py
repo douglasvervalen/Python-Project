@@ -714,7 +714,8 @@ def Fatoracao_LU():
         print(f'{bold}{white}{lf}{res}')
         loading()
         print(f'{bold}{orange7} Multiplicadores: {white}{mults} {white}{res}')
-        while True:
+        process = True
+        while process:
             loading()
             request = input(f'{bold}{white}Valores de y no formato {orange7}({white}b1 b2 b3{orange7}){white}: {res}').split()
             if len(request) == 3:
@@ -732,17 +733,20 @@ def Fatoracao_LU():
                 print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end='\n')
-                loading()
-                verif = input(f'{bold}{white}Quer repetir o processo para y? (y/n): {res}')
-                if verif == 'y' or verif == 'yes' or verif == 'sim' or verif == 's':
-                    continue
-                elif verif == 'n' or verif == 'no' or verif == 'nao' or verif == 'não':
-                    break
-                else:
+                while True:
                     loading()
-                    print(f'{bold}{red2}Entrada Inválida!!!')
-                    print(f'{bold}{red2}A escolha deve ser indicada por {white}y {red2}ou {white}n{res}')
-                    continue
+                    verif = input(f'{bold}{white}Quer repetir o processo para y? (y/n): {res}')
+                    if verif == 'y' or verif == 'yes' or verif == 'sim' or verif == 's':
+                        process = True
+                        break
+                    elif verif == 'n' or verif == 'no' or verif == 'nao' or verif == 'não':
+                        process = False
+                        break
+                    else:
+                        loading()
+                        print(f'{bold}{red2}Entrada Inválida!!!')
+                        print(f'{bold}{red2}A escolha deve ser indicada por {white}y {red2}ou {white}n{res}')
+                        continue
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
@@ -757,7 +761,8 @@ def Fatoracao_LU():
         print(f'{bold}{white}{lf}{res}')
         loading()
         print(f'{bold}{orange7} Multiplicadores: {white}{mults} {white}{res}')
-        while True:
+        process = True
+        while process:
             loading()
             request = input(f'{bold}{white}Valores de y no formato {orange7}({white}b1 b2 b3 b4{orange7}){white}: {res}').split()
             if len(request) == 4:
@@ -777,17 +782,20 @@ def Fatoracao_LU():
                 print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end=' ')
                 print(f'{bold}{white}[{orange7}x4{white}: {x4:.7f}]', end='\n')
-                loading()
-                verif = input(f'{bold}{white}Quer repetir o processo para y? (y/n): {res}')
-                if verif == 'y' or verif == 'yes' or verif == 'sim' or verif == 's':
-                    continue
-                elif verif == 'n' or verif == 'no' or verif == 'nao' or verif == 'não':
-                    break
-                else:
+                while True:
                     loading()
-                    print(f'{bold}{red2}Entrada Inválida!!!')
-                    print(f'{bold}{red2}A escolha deve ser indicada por {white}y {red2}ou {white}n{res}')
-                    continue
+                    verif = input(f'{bold}{white}Quer repetir o processo para y? (y/n): {res}')
+                    if verif == 'y' or verif == 'yes' or verif == 'sim' or verif == 's':
+                        process = True
+                        break
+                    elif verif == 'n' or verif == 'no' or verif == 'nao' or verif == 'não':
+                        process = False
+                        break
+                    else:
+                        loading()
+                        print(f'{bold}{red2}Entrada Inválida!!!')
+                        print(f'{bold}{red2}A escolha deve ser indicada por {white}y {red2}ou {white}n{res}')
+                        continue
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
