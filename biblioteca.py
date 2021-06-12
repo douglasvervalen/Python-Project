@@ -714,8 +714,7 @@ def Fatoracao_LU():
         print(f'{bold}{white}{lf}{res}')
         loading()
         print(f'{bold}{orange7} Multiplicadores: {white}{mults} {white}{res}')
-        teste = True
-        while teste:
+        while True:
             loading()
             request = input(f'{bold}{white}Valores de y no formato {orange7}({white}b1 b2 b3{orange7}){white}: {res}').split()
             if len(request) == 3:
@@ -753,8 +752,7 @@ def Fatoracao_LU():
         print(f'{bold}{white}{lf}{res}')
         loading()
         print(f'{bold}{orange7} Multiplicadores: {white}{mults} {white}{res}')
-        teste = True
-        while teste:
+        while True:
             loading()
             request = input(f'{bold}{white}Valores de y no formato {orange7}({white}b1 b2 b3 b4{orange7}){white}: {res}').split()
             if len(request) == 4:
