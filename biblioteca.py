@@ -898,7 +898,7 @@ def Gauss_Xanosk():
                     print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
                     print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
                     print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.7f}{white}]', end='\n')
-                    if ex < erro and ey < erro and ez < erro and ew < erro:
+                    if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro and abs(ew) < erro:
                         verify = False
                     else:
                         x0 = x
