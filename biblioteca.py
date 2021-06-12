@@ -739,9 +739,10 @@ def Fatoracao_LU():
                 elif verif == 'n' or verif == 'no' or verif == 'nao' or verif == 'não':
                     break
                 else:
-                print(f'{bold}{re2}Entrada Inválida!!!')
-                print(f'{bold}{red2}A escolha deve ser indicada por {white}y {red2}ou {white}n{res}')
-                continue
+                    loading()
+                    print(f'{bold}{red2}Entrada Inválida!!!')
+                    print(f'{bold}{red2}A escolha deve ser indicada por {white}y {red2}ou {white}n{res}')
+                    continue
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
@@ -783,7 +784,8 @@ def Fatoracao_LU():
                 elif verif == 'n' or verif == 'no' or verif == 'nao' or verif == 'não':
                     break
                 else:
-                    print(f'{bold}{re2}Entrada Inválida!!!')
+                    loading()
+                    print(f'{bold}{red2}Entrada Inválida!!!')
                     print(f'{bold}{red2}A escolha deve ser indicada por {white}y {red2}ou {white}n{res}')
                     continue
             else:
