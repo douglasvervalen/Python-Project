@@ -812,9 +812,9 @@ def Gauss_Xanosk():
         c22 = (abs(m[0, 1]) + abs(m[2, 1]))
         c33 = (abs(m[0, 2]) + abs(m[1, 2]))
         verify = False
-        if abs(c11) < abs(m[0, 0]) and abs(c22) < abs(m[1, 1]) and abs(c33) < abs(m[2, 2]):
+        if abs(c11) <= abs(m[0, 0]) and abs(c22) <= abs(m[1, 1]) and abs(c33) <= abs(m[2, 2]):
             verify = True
-        elif abs(l11) < abs(m[0, 0]) and abs(l22) < abs(m[1, 1]) and abs(l33) < abs(m[2, 2]):
+        elif abs(l11) <= abs(m[0, 0]) and abs(l22) <= abs(m[1, 1]) and abs(l33) <= abs(m[2, 2]):
             verify = True
         else:
             print(f'{bold}{white}Sistema {red2}Inválido!!!')
@@ -853,7 +853,6 @@ def Gauss_Xanosk():
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
                 print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3{orange7}){res}')
-
     if m.shape[0] == 4:
         l11 = (abs(m[0, 1]) + abs(m[0, 2]) + abs(m[0, 3]))
         l22 = (abs(m[1, 0]) + abs(m[1, 2]) + abs(m[1, 3]))
@@ -864,9 +863,9 @@ def Gauss_Xanosk():
         c33 = (abs(m[0, 2]) + abs(m[1, 2]) + abs(m[3, 2]))
         c44 = (abs(m[0, 3]) + abs(m[1, 3]) + abs(m[2, 3]))
         verify = False
-        if abs(c11) < abs(m[0, 0]) and abs(c22) < abs(m[1, 1]) and abs(c33) < abs(m[2, 2]) and abs(c44) < abs(m[3, 3]):
+        if abs(c11) <= abs(m[0, 0]) and abs(c22) <= abs(m[1, 1]) and abs(c33) <= abs(m[2, 2]) and abs(c44) <= abs(m[3, 3]):
             verify = True
-        elif abs(l11) < abs(m[0, 0]) and abs(l22) < abs(m[1, 1]) and abs(l33) < abs(m[2, 2]) and abs(l44) < abs(
+        elif abs(l11) <= abs(m[0, 0]) and abs(l22) <= abs(m[1, 1]) and abs(l33) <= abs(m[2, 2]) and abs(l44) <= abs(
                 m[3, 3]):
             verify = True
         else:
@@ -910,6 +909,116 @@ def Gauss_Xanosk():
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
                 print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3 x4{orange7}){res}')
+#Solução do sistema por Gauss-Seidel
+def Gauss_Seidel():
+    m = criar_matriz()
+    if m.shape[0] == 3:
+        l11 = (abs(m[0, 1]) + abs(m[0, 2]))
+        l22 = (abs(m[1, 0]) + abs(m[1, 2]))
+        l33 = (abs(m[2, 0]) + abs(m[2, 1]))
+        c11 = (abs(m[1, 0]) + abs(m[2, 0]))
+        c22 = (abs(m[0, 1]) + abs(m[2, 1]))
+        c33 = (abs(m[0, 2]) + abs(m[1, 2]))
+        verify = False
+        if abs(c11) <= abs(m[0, 0]) and abs(c22) <= abs(m[1, 1]) and abs(c33) <= abs(m[2, 2]):
+            verify = True
+        elif abs(l11) <= abs(m[0, 0]) and abs(l22) <= abs(m[1, 1]) and abs(l33) <= abs(m[2, 2]):
+            verify = True
+        else:
+            print(f'{bold}{white}Sistema {red2}Inválido!!!')
+            print(f'{red2}Critérios de convergência não atendindos!{res}')
+        while verify:
+            loading()
+            kinicial = input(f'{bold}{white}Valores iniciais de x1, x2 e x3 no '
+                             f'formato {orange7}({white}x1 x2 x3{orange7}){white}: {res}').split()
+            if len(kinicial) == 3:
+                x0, y0, z0 = [float(values) for values in kinicial]
+                erro = float(input(f'{bold}{white}Erro Permitido: {res}'))
+                k = 1
+                while verify:
+                    x = (m[0, 3] - (m[0, 2] * z0) - (m[0, 1] * y0)) / m[0, 0]
+                    y = (m[1, 3] - (m[1, 2] * z0) - (m[1, 0] * x)) / m[1, 1]
+                    z = (m[2, 3] - (m[2, 1] * y) - (m[2, 0] * x)) / m[2, 2]
+                    loading()
+                    print(f'{bold}{orange7}Interação: {white}{k}{res}')
+                    print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x3{white}: {z:7f}]', end='\n')
+                    ex = (abs(x) - abs(x0))
+                    ey = (abs(y) - abs(y0))
+                    ez = (abs(z) - abs(z0))
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
+                    if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro:
+                        verify = False
+                    else:
+                        x0 = x
+                        y0 = y
+                        z0 = z
+                        k += 1
+            else:
+                loading()
+                print(f'{red2}{bold}Entrada Inválida!!!')
+                print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3{orange7}){res}')
+    if m.shape[0] == 4:
+        l11 = (abs(m[0, 1]) + abs(m[0, 2]) + abs(m[0, 3]))
+        l22 = (abs(m[1, 0]) + abs(m[1, 2]) + abs(m[1, 3]))
+        l33 = (abs(m[2, 0]) + abs(m[2, 1]) + abs(m[2, 3]))
+        l44 = (abs(m[3, 0]) + abs(m[3, 1]) + abs(m[3, 2]))
+        c11 = (abs(m[1, 0]) + abs(m[2, 0]) + abs(m[3, 0]))
+        c22 = (abs(m[0, 1]) + abs(m[2, 1]) + abs(m[3, 1]))
+        c33 = (abs(m[0, 2]) + abs(m[1, 2]) + abs(m[3, 2]))
+        c44 = (abs(m[0, 3]) + abs(m[1, 3]) + abs(m[2, 3]))
+        verify = False
+        if abs(c11) <= abs(m[0, 0]) and abs(c22) <= abs(m[1, 1]) and abs(c33) <= abs(m[2, 2]) and abs(c44) <= abs(
+                m[3, 3]):
+            verify = True
+        elif abs(l11) <= abs(m[0, 0]) and abs(l22) <= abs(m[1, 1]) and abs(l33) <= abs(m[2, 2]) and abs(l44) <= abs(
+                m[3, 3]):
+            verify = True
+        else:
+            print(f'{bold}{white}Sistema {red2}Inválido!!!')
+            print(f'{red2}Critérios de convergência não atendindos!{res}')
+        while verify:
+            kinicial = input(f'{bold}{white}Valores iniciais de x1, x2, x3 e x4 no '
+                             f'formato {orange7}({white}x1 x2 x3 x4{orange7}){white}: {res}').split()
+            if len(kinicial) == 4:
+                x0, y0, z0, w0 = [float(values) for values in kinicial]
+                erro = float(input(f'{bold}{white}Erro Permitido: {res}'))
+                k = 1
+                while verify:
+                    x = (m[0, 4] - (m[0, 2] * z0) - (m[0, 1] * y0) - (m[0, 3] * w0)) / m[0, 0]
+                    y = (m[1, 4] - (m[1, 2] * z0) - (m[1, 0] * x) - (m[1, 3] * w0)) / m[1, 1]
+                    z = (m[2, 4] - (m[2, 1] * y) - (m[2, 0] * x) - (m[2, 3] * w0)) / m[2, 2]
+                    w = (m[3, 4] - (m[3, 1] * y) - (m[3, 0] * x) - (m[3, 2] * z)) / m[3, 3]
+                    loading()
+                    print(f'{bold}{orange7}Interação: {white}{k}{res}')
+                    print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x3{white}: {z:.7f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x4{white}: {w:7f}]', end='\n')
+                    ex = (abs(x) - abs(x0))
+                    ey = (abs(y) - abs(y0))
+                    ez = (abs(z) - abs(z0))
+                    ew = (abs(w) - abs(w0))
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.7f}{white}]', end='\n')
+                    if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro and abs(ew) < erro:
+                        verify = False
+                    else:
+                        x0 = x
+                        y0 = y
+                        z0 = z
+                        w0 = w
+                        k += 1
+            else:
+                loading()
+                print(f'{red2}{bold}Entrada Inválida!!!')
+                print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3 x4{orange7}){res}')
+
 #Cria cópias de funções com o parâmetro definido
 def criar_vetor_copy(x):
     vetor = np.zeros((1,x))
@@ -1100,7 +1209,7 @@ def seletor():
         tecla('Produto Vetorial', 'V')
         tecla('Produto Escalar', 'E')
         tecla('Produto Misto', 'M')
-        tecla('Sistemas Lineares', 'S')
+        tecla('Sistemas Lineares', 'X')
         tecla('Multiplicação de Matriz', 'Z')
         tecla('Determinante', 'D')
         tecla('Matriz Inversa', 'I')
@@ -1111,6 +1220,7 @@ def seletor():
         tecla('Eliminação de Gauss (c/ Troca de Linha)', 'T')
         tecla('Fatoração LU', 'L')
         tecla('Gauss-Jacobi', 'J')
+        tecla('Gauss-Seidel', 'S')
         tecla('Sair', 'Q')
 
         x = input(f'{bold}{white}Operação: {res}').lower().replace(' ', '')
@@ -1142,7 +1252,7 @@ def seletor():
             loading()
             print(f'{bold}{green5}Resultado{white}: {c:.6f}{res}')
             loading()
-        elif x == 's' or x == 'sistemas' or x == 'sistemalinear' or x == 'sistema' or x == 'sistemaslinear' or x == 'sistemaslineares':
+        elif x == 'x' or x == 'sistemas' or x == 'sistemalinear' or x == 'sistema' or x == 'sistemaslinear' or x == 'sistemaslineares':
             loading()
             title('Sistemas Lineares')
             loading()
@@ -1222,6 +1332,12 @@ def seletor():
             title('Gauss-Jacobi')
             loading()
             Gauss_Xanosk()
+            loading()
+        elif x =='s' or x == 'seidel' or x == 'gauss-seidel' or x == 'gaussseidel':
+            loading()
+            title('Gauss-Seidel')
+            loading()
+            Gauss_Seidel()
             loading()
         elif x == 'q':
             break
