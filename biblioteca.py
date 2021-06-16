@@ -110,7 +110,7 @@ def criar_matriz():
         else:
             loading()
             print(f'{red2}{bold}Entrada Inválida!!!')
-            print(f'Tamanho da Matriz deve ser indicado por {orange}({white}Linha Coluna{orange}) {red2}|| Ex: {white}(3 3){res}')
+            print(f'Tamanho da Matriz deve ser indicado por {orange7}({white}Linha Coluna{orange7}) {red2}|| Ex: {white}(3 3){res}')
             loading()
 #Cria um vetor de n dimensões
 def criar_vetor():
@@ -374,19 +374,19 @@ def Gauss():
         x2 = m[1, 3] / m[1, 1]
         x3 = m[2, 3] / m[2, 2]
         loading()
-        print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end='\n')
+        print(f'{bold}{white}[{orange7}x1{white}: {x1:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x2{white}: {x2:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x3{white}: {x3:.4f}]', end='\n')
     if m.shape[0] == 4:
         x1 = m[0,4] / m[0, 0]
         x2 = m[1,4] / m[1, 1]
         x3 = m[2,4] / m[2, 2]
         x4 = m[3,4] / m[3, 3]
         loading()
-        print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x4{white}: {x4:7f}]', end='\n')
+        print(f'{bold}{white}[{orange7}x1{white}: {x1:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x2{white}: {x2:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x3{white}: {x3:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x4{white}: {x4:.4f}]', end='\n')
 #Solução do sistema por Eliminação de Gauss
 def Gauss_Elimination():
     np.set_printoptions(suppress=True)
@@ -461,16 +461,16 @@ def Gauss_Elimination():
     if m.shape[0] == 3:
         x1, x2, x3 = solucao3(m)
         loading()
-        print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end='\n')
+        print(f'{bold}{white}[{orange7}x1{white}: {x1:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x2{white}: {x2:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x3{white}: {x3:.4f}]', end='\n')
     if m.shape[0] == 4:
         x1, x2, x3, x4 = solucao4(m)
         loading()
-        print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x4{white}: {x4:7f}]', end='\n')
+        print(f'{bold}{white}[{orange7}x1{white}: {x1:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x2{white}: {x2:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x3{white}: {x3:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x4{white}: {x4:.4f}]', end='\n')
 #Solução do sistema por Eliminação de Gauss c/ Troca de Linha
 def Gauss_Elimination_L():
     np.set_printoptions(suppress=True)
@@ -571,16 +571,16 @@ def Gauss_Elimination_L():
     if m.shape[0] == 3:
         x1, x2, x3 = solucao3(m)
         loading()
-        print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end='\n')
+        print(f'{bold}{white}[{orange7}x1{white}: {x1:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x2{white}: {x2:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x3{white}: {x3:.4f}]', end='\n')
     if m.shape[0] == 4:
         x1, x2, x3, x4 = solucao4(m)
         loading()
-        print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end=' ')
-        print(f'{bold}{white}[{orange7}x4{white}: {x4:7f}]', end='\n')
+        print(f'{bold}{white}[{orange7}x1{white}: {x1:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x2{white}: {x2:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x3{white}: {x3:.4f}]', end=' ')
+        print(f'{bold}{white}[{orange7}x4{white}: {x4:.4f}]', end='\n')
 #Solução do sistema fatorando a matriz A por duas matrizes lower e uper
 def Fatoracao_LU():
     global multiplicadores
@@ -643,7 +643,7 @@ def Fatoracao_LU():
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador} {res}')
                 print(f'{bold}{white}{mc3}{res}')
-                print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[i]:.7f} {white}{res}')
+                print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[i]:.4f} {white}{res}')
                 contador += 1
                 k += 1
             if k > 2:
@@ -656,7 +656,7 @@ def Fatoracao_LU():
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                 print(f'{bold}{white}{mc3}{res}')
-                print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[2]:.7f} {white}{res}')
+                print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[2]:.4f} {white}{res}')
                 contador += 1
                 j += 1
     if m.shape[0] == 4:
@@ -672,7 +672,7 @@ def Fatoracao_LU():
             loading()
             print(f'{bold}{orange7} Passo: {white}{contador}{res}')
             print(f'{bold}{white}{mc4}{res}')
-            print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[i]:.7f} {white}{res}')
+            print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[i]:.4f} {white}{res}')
             contador += 1
             k += 1
             if k > 3:
@@ -686,7 +686,7 @@ def Fatoracao_LU():
                     loading()
                     print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                     print(f'{bold}{white}{mc4}{res}')
-                    print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[3]:.7f} {white}{res}')
+                    print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[3]:.4f} {white}{res}')
                     contador += 1
                     k += 1
                 j += 1
@@ -698,7 +698,7 @@ def Fatoracao_LU():
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                 print(f'{bold}{white}{mc4}{res}')
-                print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[4]:.7f} {white}{res}')
+                print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[4]:.4f} {white}{res}')
                 contador += 1
     mults = np.asarray(multiplicadores)
     mf = np.around(m, 7)
@@ -724,15 +724,15 @@ def Fatoracao_LU():
                 ly = np.hstack((l, vy))
                 y1, y2, y3 = solucaop3(ly)
                 loading()
-                print(f'{bold}{white}[{orange7}y1{white}: {y1:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}y2{white}: {y2:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}y3{white}: {y3:.7f}]', end='\n')
+                print(f'{bold}{white}[{orange7}y1{white}: {y1:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}y2{white}: {y2:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}y3{white}: {y3:.4f}]', end='\n')
                 lyr = col(y1, y2, y3)
                 u = np.hstack((m, lyr))
                 x1, x2, x3 = Gauss_Elimination_copy(u)
-                print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end='\n')
+                print(f'{bold}{white}[{orange7}x1{white}: {x1:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x2{white}: {x2:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x3{white}: {x3:.4f}]', end='\n')
                 while True:
                     loading()
                     verif = input(f'{bold}{white}Quer repetir o processo para y? (y/n): {res}')
@@ -750,7 +750,7 @@ def Fatoracao_LU():
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
-                print(f'Valores de y deve estar no formato {orange7}({white}b1 b2 b3{orange7}){res}')
+                print(f'Valores de y devem estar no formato {orange7}({white}b1 b2 b3{orange7}){res}')
                 loading()
     if m.shape[0] == 4:
         l = np.identity(4)
@@ -771,17 +771,17 @@ def Fatoracao_LU():
                 ly = np.hstack((l, vy))
                 y1, y2, y3, y4 = solucaop4(ly)
                 loading()
-                print(f'{bold}{white}[{orange7}y1{white}: {y1:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}y2{white}: {y2:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}y3{white}: {y3:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}y4{white}: {y4:.7f}]', end='\n')
+                print(f'{bold}{white}[{orange7}y1{white}: {y1:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}y2{white}: {y2:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}y3{white}: {y3:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}y4{white}: {y4:.4f}]', end='\n')
                 lyr = col2(y1, y2, y3, y4)
                 u = np.hstack((m, lyr))
                 x1, x2, x3, x4 = Gauss_Elimination_copy(u)
-                print(f'{bold}{white}[{orange7}x1{white}: {x1:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}x2{white}: {x2:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}x3{white}: {x3:.7f}]', end=' ')
-                print(f'{bold}{white}[{orange7}x4{white}: {x4:.7f}]', end='\n')
+                print(f'{bold}{white}[{orange7}x1{white}: {x1:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x2{white}: {x2:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x3{white}: {x3:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x4{white}: {x4:.4f}]', end='\n')
                 while True:
                     loading()
                     verif = input(f'{bold}{white}Quer repetir o processo para y? (y/n): {res}')
@@ -799,7 +799,7 @@ def Fatoracao_LU():
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
-                print(f'Valores de y deve estar no formato {orange7}({white}b1 b2 b3 b4{orange7}){res}')
+                print(f'Valores de y devem estar no formato {orange7}({white}b1 b2 b3 b4{orange7}){res}')
                 loading()
 #Solução do sistema por Gauss-Jacobi
 def Gauss_Xanosk():
@@ -817,6 +817,7 @@ def Gauss_Xanosk():
         elif abs(l11) <= abs(m[0, 0]) and abs(l22) <= abs(m[1, 1]) and abs(l33) <= abs(m[2, 2]):
             verify = True
         else:
+            loading()
             print(f'{bold}{white}Sistema {red2}Inválido!!!')
             print(f'{red2}Critérios de convergência não atendindos!{res}')
         while verify:
@@ -833,15 +834,15 @@ def Gauss_Xanosk():
                     z = (m[2, 3] - (m[2, 1] * y0) - (m[2, 0] * x0)) / m[2, 2]
                     loading()
                     print(f'{bold}{orange7}Interação: {white}{k}{res}')
-                    print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x3{white}: {z:7f}]', end='\n')
+                    print(f'{bold}{white}[{orange7}x1{white}: {x:.4f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x2{white}: {y:.4f}]', end=' ')
+                    print(f'{bold}{white}[:.4f{white}: {z:.4f}]', end='\n')
                     ex = (abs(x) - abs(x0))
                     ey = (abs(y) - abs(y0))
                     ez = (abs(z) - abs(z0))
-                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.4f}{white}]', end='\n')
                     if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro:
                         verify = False
                     else:
@@ -852,7 +853,7 @@ def Gauss_Xanosk():
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
-                print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3{orange7}){res}')
+                print(f'Valores de y devem estar no formato {orange7}({white}x1 x2 x3{orange7}){res}')
     if m.shape[0] == 4:
         l11 = (abs(m[0, 1]) + abs(m[0, 2]) + abs(m[0, 3]))
         l22 = (abs(m[1, 0]) + abs(m[1, 2]) + abs(m[1, 3]))
@@ -885,18 +886,18 @@ def Gauss_Xanosk():
                     w = (m[3, 4] - (m[3, 1] * y0) - (m[3, 0] * x0) - (m[3, 2] * z0)) / m[3, 3]
                     loading()
                     print(f'{bold}{orange7}Interação: {white}{k}{res}')
-                    print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x3{white}: {z:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x4{white}: {w:7f}]', end='\n')
+                    print(f'{bold}{white}[{orange7}x1{white}: {x:.4f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x2{white}: {y:.4f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x3{white}: {z:.4f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x4{white}: {w:.4f}]', end='\n')
                     ex = (abs(x) - abs(x0))
                     ey = (abs(y) - abs(y0))
                     ez = (abs(z) - abs(z0))
                     ew = (abs(w) - abs(w0))
-                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.4f}{white}]', end='\n')
                     if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro and abs(ew) < erro:
                         verify = False
                     else:
@@ -908,7 +909,7 @@ def Gauss_Xanosk():
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
-                print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3 x4{orange7}){res}')
+                print(f'Valores de y devem estar no formato {orange7}({white}x1 x2 x3 x4{orange7}){res}')
 #Solução do sistema por Gauss-Seidel
 def Gauss_Seidel():
     m = criar_matriz()
@@ -941,15 +942,15 @@ def Gauss_Seidel():
                     z = (m[2, 3] - (m[2, 1] * y) - (m[2, 0] * x)) / m[2, 2]
                     loading()
                     print(f'{bold}{orange7}Interação: {white}{k}{res}')
-                    print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x3{white}: {z:7f}]', end='\n')
+                    print(f'{bold}{white}[{orange7}x1{white}: {x:.4f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x2{white}: {y:.4f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x3{white}: {z:.4f}]', end='\n')
                     ex = (abs(x) - abs(x0))
                     ey = (abs(y) - abs(y0))
                     ez = (abs(z) - abs(z0))
-                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.4f}{white}]', end='\n')
                     if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro:
                         verify = False
                     else:
@@ -960,7 +961,7 @@ def Gauss_Seidel():
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
-                print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3{orange7}){res}')
+                print(f'Valores de y devem estar no formato {orange7}({white}x1 x2 x3{orange7}){res}')
     if m.shape[0] == 4:
         l11 = (abs(m[0, 1]) + abs(m[0, 2]) + abs(m[0, 3]))
         l22 = (abs(m[1, 0]) + abs(m[1, 2]) + abs(m[1, 3]))
@@ -994,18 +995,18 @@ def Gauss_Seidel():
                     w = (m[3, 4] - (m[3, 1] * y) - (m[3, 0] * x) - (m[3, 2] * z)) / m[3, 3]
                     loading()
                     print(f'{bold}{orange7}Interação: {white}{k}{res}')
-                    print(f'{bold}{white}[{orange7}x1{white}: {x:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x2{white}: {y:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x3{white}: {z:.7f}]', end=' ')
-                    print(f'{bold}{white}[{orange7}x4{white}: {w:7f}]', end='\n')
+                    print(f'{bold}{white}[{orange7}x1{white}: {x:.4f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x2{white}: {y:.4f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x3{white}: {z:.4f}]', end=' ')
+                    print(f'{bold}{white}[{orange7}x4{white}: {w:.4f}]', end='\n')
                     ex = (abs(x) - abs(x0))
                     ey = (abs(y) - abs(y0))
                     ez = (abs(z) - abs(z0))
                     ew = (abs(w) - abs(w0))
-                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.7f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.7f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.4f}{white}]', end='\n')
                     if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro and abs(ew) < erro:
                         verify = False
                     else:
@@ -1017,8 +1018,192 @@ def Gauss_Seidel():
             else:
                 loading()
                 print(f'{red2}{bold}Entrada Inválida!!!')
-                print(f'Valores de y deve estar no formato {orange7}({white}x1 x2 x3 x4{orange7}){res}')
-
+                print(f'Valores de y devem estar no formato {orange7}({white}x1 x2 x3 x4{orange7}){res}')
+#Solução do sistema pelo Método da Relaxação
+def Relaxação():
+    global b, x
+    m = criar_matriz()
+    erro = float(input(f'{bold}{white}Erro Permitido: {res}'))
+    if m.shape[0] == 3:
+        verify = True
+        while verify:
+            kinicial = input(f'{bold}{white}Valores iniciais de x1, x2 e x3 no '
+                             f'formato {orange7}({white}x1 x2 x3{orange7}){white}: {res}').split()
+            k = [float(values) for values in kinicial]
+            if len(k) == 3:
+                a = np.asarray(k)
+                counter = 1
+                while True:
+                    r1 = ((m[0, 0] * a[0]) + (m[0, 1] * a[1]) + (m[0, 2] * a[2]) + m[0, 3])
+                    r2 = ((m[1, 0] * a[0]) + (m[1, 1] * a[1]) + (m[1, 2] * a[2]) + m[1, 3])
+                    r3 = ((m[2, 0] * a[0]) + (m[2, 1] * a[1]) + (m[2, 2] * a[2]) + m[2, 3])
+                    if abs(r1) < erro and abs(r2) < erro and abs(r3) < erro:
+                        loading()
+                        print(f'{bold}{orange7}Interação Final{res}')
+                        print(f'{bold}{white}[{orange7}r1{white}: {r1:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r2{white}: {r2:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r3{white}: {r3:.4f}]', end='\n')
+                        break
+                    else:
+                        loading()
+                        print(f'{bold}{orange7}Interação: {white}{counter}{res}')
+                        print(f'{bold}{white}[{orange7}r1{white}: {r1:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r2{white}: {r2:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r3{white}: {r3:.4f}]', end='\n')
+                        if abs(r1) > abs(r2) and abs(r1) > abs(r3):
+                            x = np.argmax(abs(m[0, 0:3:1]))
+                            if x == 0:
+                                b = round((-((m[0, 1] * a[1]) + (m[0, 2] * a[2]) + m[0, 3]) / m[0, 0]), 4)
+                            elif x == 1:
+                                b = round((-((m[0, 0] * a[0]) + (m[0, 2] * a[2]) + m[0, 3]) / m[0, 1]), 4)
+                            elif x == 2:
+                                b = round((-((m[0, 0] * a[0]) + (m[0, 1] * a[1]) + m[0, 3]) / m[0, 2]), 4)
+                            a[x] = b
+                        elif abs(r2) > abs(r3) and abs(r2) > abs(r1):
+                            x = np.argmax(abs(m[1, 0:3:1]))
+                            if x == 0:
+                                b = round((-((m[1, 1] * a[1]) + (m[1, 2] * a[2]) + m[1, 3]) / m[1, 0]), 4)
+                            elif x == 1:
+                                b = round((-((m[1, 0] * a[0]) + (m[1, 2] * a[2]) + m[1, 3]) / m[1, 1]), 4)
+                            elif x == 2:
+                                b = round((-((m[1, 0] * a[0]) + (m[1, 1] * a[1]) + m[1, 3]) / m[1, 2]), 4)
+                            a[x] = b
+                        elif abs(r3) > abs(r1) and abs(r3) > abs(r2):
+                            x = np.argmax(abs(m[2, 0:3:1]))
+                            if x == 0:
+                                b = round((-((m[2, 1] * a[1]) + (m[2, 2] * a[2]) + m[2, 3]) / m[2, 0]), 4)
+                            elif x == 1:
+                                b = round((-((m[1, 0] * a[0]) + (m[1, 2] * a[2]) + m[1, 3]) / m[2, 1]), 4)
+                            elif x == 2:
+                                b = round((-((m[2, 0] * a[0]) + (m[2, 1] * a[1]) + m[2, 3]) / m[2, 2]), 4)
+                            a[x] = b
+                        if x == 0:
+                            print(f'{bold}{white}[{orange7}x1{white}: {b:.4f}]{res}')
+                        elif x == 1:
+                            print(f'{bold}{white}[{orange7}x2{white}: {b:.4f}]{res}')
+                        elif x == 2:
+                            print(f'{bold}{white}[{orange7}x3{white}: {b:.4f}]{res}')
+                        print(f'{bold}{white}[{orange7}x1{white}: {a[0]:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}x2{white}: {a[1]:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}x3{white}: {a[2]:.4f}]', end='\n')
+                        counter += 1
+                print(f'{bold}{white}[{orange7}x1{white}: {a[0]:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x2{white}: {a[1]:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x3{white}: {a[2]:.4f}]', end='\n')
+                verify = False
+            else:
+                loading()
+                print(f'{red2}{bold}Entrada Inválida!!!')
+                print(f'Valores de y devemm estar no formato {orange7}({white}x1 x2 x3{orange7}){res}')
+                loading()
+    if m.shape[0] == 4:
+        verify = True
+        while verify:
+            kinicial = input(f'{bold}{white}Valores iniciais de x1, x2, x3 e x4 no '
+                             f'formato {orange7}({white}x1 x2 x3 x4{orange7}){white}: {res}').split()
+            k = [float(values) for values in kinicial]
+            if len(k) == 4:
+                a = np.asarray(k)
+                counter = 1
+                while True:
+                    r1 = ((m[0, 0] * a[0]) + (m[0, 1] * a[1]) + (m[0, 2] * a[2]) + (m[0,3]*a[3]) + m[0, 4])
+                    r2 = ((m[1, 0] * a[0]) + (m[1, 1] * a[1]) + (m[1, 2] * a[2]) + (m[1,3]*a[3]) + m[1, 4])
+                    r3 = ((m[2, 0] * a[0]) + (m[2, 1] * a[1]) + (m[2, 2] * a[2]) + (m[2,3]*a[3]) + m[2, 4])
+                    r4 = ((m[3, 0] * a[0]) + (m[3, 1] * a[1]) + (m[3, 2] * a[2]) + (m[3,3]*a[3]) + m[3, 4])
+                    if abs(r1) < erro and abs(r2) < erro and abs(r3) < erro and abs(r4) < erro:
+                        loading()
+                        print(f'{bold}{orange7}Interação Final{res}')
+                        print(f'{bold}{white}[{orange7}r1{white}: {r1:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r2{white}: {r2:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r3{white}: {r3:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r4{white}: {r4:.4f}]', end='\n')
+                        break
+                    else:
+                        loading()
+                        print(f'{bold}{orange7}Interação: {white}{counter}{res}')
+                        print(f'{bold}{white}[{orange7}r1{white}: {r1:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r2{white}: {r2:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r3{white}: {r3:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}r4{white}: {r4:.4f}]', end='\n')
+                        if abs(r1) > abs(r2) and abs(r1) > abs(r3) and abs(r1) > abs(r4):
+                            x = np.argmax(abs(m[0, 0:4:1]))
+                            if x == 0:
+                                b = round((-((m[0, 1] * a[1]) + (m[0, 2] * a[2]) + (m[0,3]*a[3] )+ m[0, 4]) / m[0, 0]), 4)
+                            elif x == 1:
+                                b = round((-((m[0, 0] * a[0]) + (m[0, 2] * a[2])+ (m[0,3]*a[3] ) + m[0, 4]) / m[0, 1]), 4)
+                            elif x == 2:
+                                b = round((-((m[0, 0] * a[0]) + (m[0, 1] * a[1])+ (m[0,3]*a[3] ) + m[0, 4]) / m[0, 2]), 4)
+                            elif x == 3:
+                                b = round((-((m[0, 0] * a[0]) + (m[0, 1] * a[1]) + (m[0, 2] * a[2]) + m[0, 4]) / m[0, 3]), 4)
+                            a[x] = b
+                        elif abs(r2) > abs(r3) and abs(r2) > abs(r1) and abs(r2) > abs(r4):
+                            x = np.argmax(abs(m[1, 0:4:1]))
+                            if x == 0:
+                                b = round(
+                                    (-((m[1, 1] * a[1]) + (m[1, 2] * a[2]) + (m[1, 3] * a[3]) + m[1, 4]) / m[1, 0]), 4)
+                            elif x == 1:
+                                b = round(
+                                    (-((m[1, 0] * a[0]) + (m[1, 2] * a[2]) + (m[1, 3] * a[3]) + m[1, 4]) / m[1, 1]), 4)
+                            elif x == 2:
+                                b = round(
+                                    (-((m[1, 0] * a[0]) + (m[1, 1] * a[1]) + (m[1, 3] * a[3]) + m[1, 4]) / m[1, 2]), 4)
+                            elif x == 3:
+                                b = round(
+                                    (-((m[1, 0] * a[0]) + (m[1, 1] * a[1]) + (m[1, 2] * a[2]) + m[1, 4]) / m[1, 3]), 4)
+                            a[x] = b
+                        elif abs(r3) > abs(r1) and abs(r3) > abs(r2) and abs(r3) > abs(r4):
+                            x = np.argmax(abs(m[2, 0:4:1]))
+                            if x == 0:
+                                b = round(
+                                    (-((m[2, 1] * a[1]) + (m[2, 2] * a[2]) + (m[2, 3] * a[3]) + m[2, 4]) / m[2, 0]), 4)
+                            elif x == 1:
+                                b = round(
+                                    (-((m[2, 0] * a[0]) + (m[2, 2] * a[2]) + (m[2, 3] * a[3]) + m[2, 4]) / m[2, 1]), 4)
+                            elif x == 2:
+                                b = round(
+                                    (-((m[2, 0] * a[0]) + (m[2, 1] * a[1]) + (m[2, 3] * a[3]) + m[2, 4]) / m[2, 2]), 4)
+                            elif x == 3:
+                                b = round(
+                                    (-((m[2, 0] * a[0]) + (m[2, 1] * a[1]) + (m[2, 2] * a[2]) + m[2, 4]) / m[2, 3]), 4)
+                            a[x] = b
+                        elif abs(r4) > abs(r1) and abs(r4) > abs(r2) and abs(r4) > abs(r3):
+                            x = np.argmax(abs(m[3, 0:4:1]))
+                            if x == 0:
+                                b = round(
+                                    (-((m[3, 1] * a[1]) + (m[3, 2] * a[2]) + (m[3, 3] * a[3]) + m[3, 4]) / m[3, 0]), 4)
+                            elif x == 1:
+                                b = round(
+                                    (-((m[3, 0] * a[0]) + (m[3, 2] * a[2]) + (m[3, 3] * a[3]) + m[3, 4]) / m[3, 1]), 4)
+                            elif x == 2:
+                                b = round(
+                                    (-((m[3, 0] * a[0]) + (m[3, 1] * a[1]) + (m[3, 3] * a[3]) + m[3, 4]) / m[3, 2]), 4)
+                            elif x == 3:
+                                b = round(
+                                    (-((m[3, 0] * a[0]) + (m[3, 1] * a[1]) + (m[3, 2] * a[2]) + m[3, 4]) / m[3, 3]), 4)
+                            a[x] = b
+                        if x == 0:
+                            print(f'{bold}{white}[{orange7}x1{white}: {b:.4f}]{res}')
+                        elif x == 1:
+                            print(f'{bold}{white}[{orange7}x2{white}: {b:.4f}]{res}')
+                        elif x == 2:
+                            print(f'{bold}{white}[{orange7}x3{white}: {b:.4f}]{res}')
+                        elif x == 3:
+                            print(f'{bold}{white}[{orange7}x4{white}: {b:.4f}]{res}')
+                        print(f'{bold}{white}[{orange7}x1{white}: {a[0]:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}x2{white}: {a[1]:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}x3{white}: {a[2]:.4f}]', end=' ')
+                        print(f'{bold}{white}[{orange7}x4{white}: {a[3]:.4f}]', end='\n')
+                        counter += 1
+                print(f'{bold}{white}[{orange7}x1{white}: {a[0]:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x2{white}: {a[1]:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x3{white}: {a[2]:.4f}]', end=' ')
+                print(f'{bold}{white}[{orange7}x4{white}: {a[3]:.4f}]', end='\n')
+                verify = False
+            else:
+                loading()
+                print(f'{red2}{bold}Entrada Inválida!!!')
+                print(f'Valores de y devemm estar no formato {orange7}({white}x1 x2 x3 x4{orange7}){res}')
+                loading()
 #Cria cópias de funções com o parâmetro definido
 def criar_vetor_copy(x):
     vetor = np.zeros((1,x))
@@ -1221,6 +1406,7 @@ def seletor():
         tecla('Fatoração LU', 'L')
         tecla('Gauss-Jacobi', 'J')
         tecla('Gauss-Seidel', 'S')
+        tecla('Método da Relaxação', 'O')
         tecla('Sair', 'Q')
 
         x = input(f'{bold}{white}Operação: {res}').lower().replace(' ', '')
@@ -1338,6 +1524,12 @@ def seletor():
             title('Gauss-Seidel')
             loading()
             Gauss_Seidel()
+            loading()
+        elif x == 'o' or x == 'relaxaçao' or x == 'relaxacao' or x == 'relaxação' or x == 'relaxacão':
+            loading()
+            title('Método da Relaxação')
+            loading()
+            Relaxação()
             loading()
         elif x == 'q':
             break
