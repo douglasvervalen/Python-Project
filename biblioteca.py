@@ -840,9 +840,9 @@ def Gauss_Xanosk():
                     ex = (abs(x) - abs(x0))
                     ey = (abs(y) - abs(y0))
                     ez = (abs(z) - abs(z0))
-                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.8f}{white}]', end='\n')
                     print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.4f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.8f}{white}]', end='\n')
                     if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro:
                         verify = False
                     else:
@@ -894,10 +894,10 @@ def Gauss_Xanosk():
                     ey = (abs(y) - abs(y0))
                     ez = (abs(z) - abs(z0))
                     ew = (abs(w) - abs(w0))
-                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.4f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.4f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.4f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.8f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.8f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.8f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.8f}{white}]', end='\n')
                     if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro and abs(ew) < erro:
                         verify = False
                     else:
@@ -948,9 +948,9 @@ def Gauss_Seidel():
                     ex = (abs(x) - abs(x0))
                     ey = (abs(y) - abs(y0))
                     ez = (abs(z) - abs(z0))
-                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.4f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.4f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.8f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.8f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.8f}{white}]', end='\n')
                     if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro:
                         verify = False
                     else:
@@ -1003,10 +1003,10 @@ def Gauss_Seidel():
                     ey = (abs(y) - abs(y0))
                     ez = (abs(z) - abs(z0))
                     ew = (abs(w) - abs(w0))
-                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.4f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.4f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.4f}{white}]', end='\n')
-                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.4f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x1({k}) - x1({k - 1})| = {abs(ex):.8f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x2({k}) - x2({k - 1})| = {abs(ey):.8f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x3({k}) - x3({k - 1})| = {abs(ez):.8f}{white}]', end='\n')
+                    print(f'{bold}{white}[{orange7}|x4({k}) - x4({k - 1})| = {abs(ew):.8f}{white}]', end='\n')
                     if abs(ex) < erro and abs(ey) < erro and abs(ez) < erro and abs(ew) < erro:
                         verify = False
                     else:
@@ -1073,7 +1073,7 @@ def Relaxação():
                             if x == 0:
                                 b = round((-((m[2, 1] * a[1]) + (m[2, 2] * a[2]) + m[2, 3]) / m[2, 0]), 4)
                             elif x == 1:
-                                b = round((-((m[1, 0] * a[0]) + (m[1, 2] * a[2]) + m[1, 3]) / m[2, 1]), 4)
+                                b = round((-((m[2, 0] * a[0]) + (m[2, 2] * a[2]) + m[2, 3]) / m[2, 1]), 4)
                             elif x == 2:
                                 b = round((-((m[2, 0] * a[0]) + (m[2, 1] * a[1]) + m[2, 3]) / m[2, 2]), 4)
                             a[x] = b
@@ -1110,6 +1110,7 @@ def Relaxação():
                     r2 = ((m[1, 0] * a[0]) + (m[1, 1] * a[1]) + (m[1, 2] * a[2]) + (m[1,3]*a[3]) + m[1, 4])
                     r3 = ((m[2, 0] * a[0]) + (m[2, 1] * a[1]) + (m[2, 2] * a[2]) + (m[2,3]*a[3]) + m[2, 4])
                     r4 = ((m[3, 0] * a[0]) + (m[3, 1] * a[1]) + (m[3, 2] * a[2]) + (m[3,3]*a[3]) + m[3, 4])
+
                     if abs(r1) < erro and abs(r2) < erro and abs(r3) < erro and abs(r4) < erro:
                         loading()
                         print(f'{bold}{orange7}Interação Final{res}')
