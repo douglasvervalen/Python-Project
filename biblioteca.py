@@ -333,7 +333,7 @@ def Gauss():
         for i in range(0, 6):
             m = add(m, - m[k, j] / m[j, j], k, j)
             loading()
-            mc3 = np.around(m, 7)
+            mc3 = np.around(m, 4)
             print(f'{bold}{orange7} Passo: {white}{contador}{res}')
             print(f'{bold}{white}{mc3}{res}')
             contador += 1
@@ -353,7 +353,7 @@ def Gauss():
         for i in range(0, 12):
             m = add(m, - m[k, j] / m[j, j], k, j)
             loading()
-            mc4 = np.around(m, 7)
+            mc4 = np.around(m, 4)
             print(f'{bold}{orange7} Passo: {white}{contador}{res}')
             print(f'{bold}{white}{mc4}{res}')
             contador += 1
@@ -365,7 +365,7 @@ def Gauss():
                 j += 1
             if j > 4:
                 j = 0
-    mf = np.around(m, 7)
+    mf = np.around(m, 4)
     loading()
     print(f'{bold}{orange7} Matriz Final {white}{res}')
     print(f'{bold}{white}{mf}{res}')
@@ -402,7 +402,7 @@ def Gauss_Elimination():
         for i in range(0,2):
             if j == 0:
                 m = add(m, - m[k, j] / m[j, j], k, j)
-                mc3 = np.around(m, 7)
+                mc3 = np.around(m, 4)
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador} {res}')
                 print(f'{bold}{white}{mc3}{res}')
@@ -414,7 +414,7 @@ def Gauss_Elimination():
             if j == 1:
                 k = 2
                 m = add(m, - m[k, j] / m[j, j], k, j)
-                mc3 = np.around(m, 7)
+                mc3 = np.around(m, 4)
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                 print(f'{bold}{white}{mc3}{res}')
@@ -427,7 +427,7 @@ def Gauss_Elimination():
         k = 1
         for i in range(0, 3):
             m = add(m, - m[k, j] / m[j, j], k, j)
-            mc4 = np.around(m, 7)
+            mc4 = np.around(m, 4)
             loading()
             print(f'{bold}{orange7} Passo: {white}{contador}{res}')
             print(f'{bold}{white}{mc4}{res}')
@@ -439,7 +439,7 @@ def Gauss_Elimination():
                 k = 2
                 for x in range(0, 2):
                     m = add(m, - m[k, j] / m[j, j], k, j)
-                    mc4 = np.around(m, 7)
+                    mc4 = np.around(m, 4)
                     loading()
                     print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                     print(f'{bold}{white}{mc4}{res}')
@@ -449,12 +449,12 @@ def Gauss_Elimination():
             if j == 2:
                 k = 3
                 m = add(m, - m[k, j] / m[j, j], k, j)
-                mc4 = np.around(m, 7)
+                mc4 = np.around(m, 4)
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                 print(f'{bold}{white}{mc4}{res}')
                 contador += 1
-    mf = np.around(m, 7)
+    mf = np.around(m, 4)
     loading()
     print(f'{bold}{orange7} Matriz Final {white}{res}')
     print(f'{bold}{white}{mf}{res}')
@@ -491,11 +491,10 @@ def Gauss_Elimination_L():
                 if abs(m[0, j]) < abs(m[n, j]):
                     m = swap(m, 0, n)
                 m = add(m, - m[k, j] / m[j, j], k, j)
-                mc3 = np.around(m, 7)
+                mc3 = np.around(m, 4)
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador} {res}')
                 print(f'{bold}{white}{mc3}{res}')
-                print(j)
                 contador += 1
                 k += 1
             if k > 2:
@@ -508,7 +507,7 @@ def Gauss_Elimination_L():
                     m = swap(m, 1, n)
                 k = 2
                 m = add(m, - m[k, j] / m[j, j], k, j)
-                mc3 = np.around(m, 7)
+                mc3 = np.around(m, 4)
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                 print(f'{bold}{white}{mc3}{res}')
@@ -527,7 +526,7 @@ def Gauss_Elimination_L():
             if abs(m[0, j]) < abs(m[n, j]):
                 m = swap(m, 0, n)
             m = add(m, - m[k, j] / m[j, j], k, j)
-            mc4 = np.around(m, 7)
+            mc4 = np.around(m, 4)
             loading()
             print(f'{bold}{orange7} Passo: {white}{contador}{res}')
             print(f'{bold}{white}{mc4}{res}')
@@ -544,7 +543,7 @@ def Gauss_Elimination_L():
                 k = 2
                 for x in range(0, 2):
                     m = add(m, - m[k, j] / m[j, j], k, j)
-                    mc4 = np.around(m, 7)
+                    mc4 = np.around(m, 4)
                     loading()
                     print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                     print(f'{bold}{white}{mc4}{res}')
@@ -559,12 +558,12 @@ def Gauss_Elimination_L():
                     m = swap(m, 2, n)
                 k = 3
                 m = add(m, - m[k, j] / m[j, j], k, j)
-                mc4 = np.around(m, 7)
+                mc4 = np.around(m, 4)
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                 print(f'{bold}{white}{mc4}{res}')
                 contador += 1
-    mf = np.around(m, 7)
+    mf = np.around(m, 4)
     loading()
     print(f'{bold}{orange7} Matriz Final {white}{res}')
     print(f'{bold}{white}{mf}{res}')
@@ -639,7 +638,7 @@ def Fatoracao_LU():
             if j == 0:
                 multiplicadores.append(m[k, j] / m[j, j])
                 m = add(m, - m[k, j] / m[j, j], k, j)
-                mc3 = np.around(m, 7)
+                mc3 = np.around(m, 4)
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador} {res}')
                 print(f'{bold}{white}{mc3}{res}')
@@ -652,7 +651,7 @@ def Fatoracao_LU():
                 k = 2
                 multiplicadores.append(m[k, j] / m[j, j])
                 m = add(m, - m[k, j] / m[j, j], k, j)
-                mc3 = np.around(m, 7)
+                mc3 = np.around(m, 4)
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                 print(f'{bold}{white}{mc3}{res}')
@@ -668,7 +667,7 @@ def Fatoracao_LU():
         for i in range(0, 3):
             multiplicadores.append(m[k, j] / m[j, j])
             m = add(m, - m[k, j] / m[j, j], k, j)
-            mc4 = np.around(m, 7)
+            mc4 = np.around(m, 4)
             loading()
             print(f'{bold}{orange7} Passo: {white}{contador}{res}')
             print(f'{bold}{white}{mc4}{res}')
@@ -682,7 +681,7 @@ def Fatoracao_LU():
                 for x in range(0, 2):
                     multiplicadores.append(m[k, j] / m[j, j])
                     m = add(m, - m[k, j] / m[j, j], k, j)
-                    mc4 = np.around(m, 7)
+                    mc4 = np.around(m, 4)
                     loading()
                     print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                     print(f'{bold}{white}{mc4}{res}')
@@ -694,14 +693,14 @@ def Fatoracao_LU():
                 k = 3
                 multiplicadores.append(m[k, j] / m[j, j])
                 m = add(m, - m[k, j] / m[j, j], k, j)
-                mc4 = np.around(m, 7)
+                mc4 = np.around(m, 4)
                 loading()
                 print(f'{bold}{orange7} Passo: {white}{contador}{res}')
                 print(f'{bold}{white}{mc4}{res}')
                 print(f'{bold}{orange7} Multiplicador: {white}{multiplicadores[4]:.4f} {white}{res}')
                 contador += 1
     mults = np.asarray(multiplicadores)
-    mf = np.around(m, 7)
+    mf = np.around(m, 4)
     loading()
     print(f'{bold}{orange7} Matriz {blue1}U {white}{res}')
     print(f'{bold}{white}{mf}{res}')
@@ -836,7 +835,7 @@ def Gauss_Xanosk():
                     print(f'{bold}{orange7}Interação: {white}{k}{res}')
                     print(f'{bold}{white}[{orange7}x1{white}: {x:.4f}]', end=' ')
                     print(f'{bold}{white}[{orange7}x2{white}: {y:.4f}]', end=' ')
-                    print(f'{bold}{white}[:.4f{white}: {z:.4f}]', end='\n')
+                    print(f'{bold}{white}[{orange}x3{white}: {z:.4f}]', end='\n')
                     ex = (abs(x) - abs(x0))
                     ey = (abs(y) - abs(y0))
                     ez = (abs(z) - abs(z0))
