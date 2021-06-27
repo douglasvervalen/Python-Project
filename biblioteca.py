@@ -1279,6 +1279,126 @@ def Gauss_Elimination_copy(m):
         x1, x2, x3, x4 = solucao4(m)
         return x1, x2, x3, x4
 
+#Interpolação
+def Interpolação_Linear():
+    while True:
+        loading()
+        npontos = input(f'{white}{bold}Pontos de x: {res}').split()
+        pontos = [float(values) for values in npontos]
+        n = len(pontos)
+        tind = input(f'{white}{bold}Pontos de f(x): {res}').split()
+        ind = [float(value) for value in tind]
+        if len(pontos) == len(ind):
+            coeficientes1 = []
+            coeficientes2 = []
+            for i in range(0,n):
+                for j in range(0,n):
+                    eq = pontos[i]**j
+                    coeficientes1.append(eq)
+                coeficientes2.append(coeficientes1)
+                coeficientes1 = []
+            coeficientes = np.asarray(coeficientes2)
+            ti1 = np.asarray(ind)
+            a = np.linalg.solve(coeficientes, ti1)
+            ponto = float(input(f'{white}{bold}Calcular f(x) no ponto: {res}'))
+            eq1 = 0
+            for i in range(0,n):
+                eq2 = eq1 + a[i]*(ponto**i)
+                eq1 = eq2
+            for i in range(0,n):
+                print(f'{bold}{white}[{orange7}a{i}{white}: {a[i]:.4f}]', end=' ')
+            print(end='\n')
+            print(f'{bold}{white}[{orange7}f(x){white}= {eq2:.4f}]', end='\n')
+            break
+        else:
+            loading()
+            print(f'{red2}{bold}Entrada Inválida!!!')
+            print(f'Número de pontos x diferente do número de pontos de y{res}')
+            print(f'{bold}{white}[{orange7}Número de pontos de x{white}: {len(pontos)}]', end=' ')
+            print(f'{bold}{white}[{orange7}Número de pontos f(x){white}: {len(ind)}]', end='\n')
+def Interpolação_Quadratica():
+    while True:
+        loading()
+        npontos = input(f'{white}{bold}Pontos de x: {res}').split()
+        pontos = [float(values) for values in npontos]
+        n = len(pontos)
+        tind = input(f'{white}{bold}Pontos de f(x): {res}').split()
+        ind = [float(value) for value in tind]
+        if len(pontos) == len(ind):
+            coeficientes1 = []
+            coeficientes2 = []
+            for i in range(0, n):
+                for j in range(0, n):
+                    eq = pontos[i] ** j
+                    coeficientes1.append(eq)
+                coeficientes2.append(coeficientes1)
+                coeficientes1 = []
+            coeficientes = np.asarray(coeficientes2)
+            ti1 = np.asarray(ind)
+            ti = ti1.reshape(n, 1)
+            matriz = np.hstack((coeficientes, ti))
+            a = Gauss_Elimination_copy(matriz)
+            ponto = float(input(f'{white}{bold}Calcular f(x) no ponto: {res}'))
+            eq1 = 0
+            x = 0
+            for i in range(0, n):
+                eq2 = eq1 + a[x] * (ponto ** i)
+                eq1 = eq2
+                x += 1
+            for i in range(0, n):
+                print(f'{bold}{white}[{orange7}a{i}{white}: {a[i]:.4f}]', end=' ')
+            print(end='\n')
+            print(f'{bold}{white}[{orange7}f(x){white}= {eq2:.4f}]', end='\n')
+            break
+        else:
+            loading()
+            print(f'{red2}{bold}Entrada Inválida!!!')
+            print(f'Número de pontos x diferente do número de pontos de y{res}')
+            print(f'{bold}{white}[{orange7}Número de pontos de x{white}: {len(pontos)}]', end=' ')
+            print(f'{bold}{white}[{orange7}Número de pontos f(x){white}: {len(ind)}]', end='\n')
+
+def Interpolação_Lagrange():
+    while True:
+        loading()
+        npontos = input(f'{white}{bold}Pontos de x: {res}').split()
+        pontos = [float(values) for values in npontos]
+        n = len(pontos)
+        tind = input(f'{white}{bold}Pontos de f(x): {res}').split()
+        ind = [float(value) for value in tind]
+        if len(ind) == len(pontos):
+            ponto = float(input(f'{white}{bold}Calcular f(x) no ponto: {res}'))
+            eq = 1
+            u = 1
+            l1 = []
+            for i in range(0, n):
+                for j in range(0, n - 1):
+                    if i == j:
+                        lu = eq * (ponto - pontos[j + 1]) / (pontos[i] - pontos[j + 1])
+                        eq = lu
+                        u = 1
+                    else:
+                        lu = eq * (ponto - pontos[j + u]) / (pontos[i] - pontos[j + u])
+                        eq = lu
+                print(f'{bold}{white}[{orange7}L{i}{white}: {lu:.4f}]', end=' ')
+                l1.append(lu)
+                u = 0
+                eq = 1
+            l = np.asarray(l1)
+            z = []
+            for i in range(0, n):
+                x = ind[i] * l[i]
+                z.append(x)
+            z1 = np.asarray(z)
+            y = np.sum(z1)
+            print(end='\n')
+            print(f'{bold}{white}[{orange7}f(x){white}= {y:.4f}]', end='\n')
+            break
+        else:
+            loading()
+            print(f'{red2}{bold}Entrada Inválida!!!')
+            print(f'Número de pontos x diferente do número de pontos de y{res}')
+            print(f'{bold}{white}[{orange7}Número de pontos de x{white}: {len(pontos)}]', end=' ')
+            print(f'{bold}{white}[{orange7}Número de pontos f(x){white}: {len(ind)}]', end='\n')
 #sla
 def matmult():
     while True:
@@ -1387,6 +1507,30 @@ title = lambda text: print(f'{bold}{sub}{text}{res}')
 #Tecla
 tecla = lambda funçao, text: print(f'{bold}{moss1}{funçao} {orange7}[{white} {text} {orange7}]{res}')
 
+#seletor inter
+def interpolação():
+    while True:
+        sleep(0.3)
+        loading()
+        tecla('Interpolação Linear', 'L')
+        tecla('Interpolação Quadratica', 'Q')
+        tecla('Interpolação Lagrange', 'G')
+        x = input(f'{bold}{white}Operação: {res}').lower().replace(' ', '')
+        if x == 'l':
+            loading()
+            title('Interpolação Linear')
+            Interpolação_Linear()
+            break
+        if x == 'q':
+            loading()
+            title('Interpolação Quadratica')
+            Interpolação_Quadratica()
+            break
+        if x == 'g':
+            loading()
+            title('Interpolação Lagrange')
+            Interpolação_Lagrange()
+            break
 #Seletor
 def seletor():
     while True:
@@ -1397,7 +1541,7 @@ def seletor():
         tecla('Sistemas Lineares', 'X')
         tecla('Multiplicação de Matriz', 'Z')
         tecla('Determinante', 'D')
-        tecla('Matriz Inversa', 'I')
+        tecla('Matriz Inversa', 'W')
         tecla('Regressão Linear - MMQ', 'R')
         tecla('Equação 2° Grau', '2')
         tecla('Gauss-Jordan', 'G')
@@ -1407,6 +1551,7 @@ def seletor():
         tecla('Gauss-Jacobi', 'J')
         tecla('Gauss-Seidel', 'S')
         tecla('Método da Relaxação', 'O')
+        tecla('Interpolação', 'I')
         tecla('Sair', 'Q')
 
         x = input(f'{bold}{white}Operação: {res}').lower().replace(' ', '')
@@ -1420,7 +1565,6 @@ def seletor():
             print(f'{bold}{orange}[{white}{a[0]:.6f}{orange}]{orange7}x{white}', end=' ')
             print(f'{bold}{orange}[{white}{a[1]:.6f}{orange}]{orange7}y{white}', end=' ')
             print(f'{bold}{orange}[{white}{a[2]:.6f}{orange}]{orange7}z{white}', end='\n')
-
             loading()
         elif x == 'e' or x == 'produtoescalar' or x == 'escalar':
             loading()
@@ -1461,7 +1605,7 @@ def seletor():
             loading()
             print(f'{white}{bold}{green5}DeterminanteΔ{white}: {e:.0f}{res}')
             loading()
-        elif x == 'i' or x == 'matrizinversa' or x == 'inversa':
+        elif x == 'w' or x == 'matrizinversa' or x == 'inversa':
             loading()
             title('Matriz Inversa')
             loading()
@@ -1531,6 +1675,10 @@ def seletor():
             loading()
             Relaxação()
             loading()
+        elif x == 'i' or x == 'inter' or x == 'interpolaçao' or x == 'interpolação':
+            interpolação()
+            loading()
+
         elif x == 'q':
             break
         else:
