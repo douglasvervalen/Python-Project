@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+def desviopadrao():
+    medidas = np.array([])
+    arr = np.array(medidas)
+    dp = np.std(arr, ddof=1)
+    print(dp)
+
+def lr():
+    x = np.array([1,2,3,4,5])
+    y = np.array([2,4,6,8,10])
+
+    slope, intercept, r, p, std_err = stats.linregress(x, y)
+
+    def myfunc(x):
+        return slope * x + intercept
+
+    mymodel = list(map(myfunc, x))
+
+    plt.scatter(x, y, c='red',label='Data')
+    plt.plot(x, mymodel, c='black',linewidth = 1.5,label='Fit Line')
+    print(f'Coef. Angular: {round(slope, 7)}')
+    print(f'Coef. Linear: {round(intercept, 7)}')
+    plt.legend()
+    plt.show()
+
